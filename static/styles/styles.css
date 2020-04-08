@@ -1,0 +1,100 @@
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.sort{
+    margin-left: 20%;
+    font-size: medium;
+    font-family: sans-serif;
+    color: black;
+}
+
+.quest{
+    margin-left: 35%;
+    font-size: medium;
+    font-family: sans-serif;
+    color: black;
+}
+
+.delete{
+    font-size: medium;
+    font-family: sans-serif;
+    color: black;
+}
+
+.questList button{
+    font-size: small;
+    font-family: sans-serif;
+    color: black;
+}
+
+.topNav{
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: burlywood;
+    overflow: hidden;
+}
+
+.topNav a{
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20;
+}
+
+.topNav a:hover{
+    background-color: chocolate;
+    color: black;
+}
+
+.topNav a:active{
+    background-color: goldenrod;
+    color: black;
+}
+
+.navButton{
+    color: darkslategray;
+}
+
+.background{
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+}
+
+.questText{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.add_Quest{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.add_Quest input{
+    height: 100%;
+    width: 100%;
+}
+
+.add_Quest button{
+    right: 0;
+}
+
+.add_Quest label{
+    font-size: medium;
+    font-family: sans-serif;
+}
+
+.questList{
+    height: auto;
+    min-height: 40px;
+    height: auto;
+    max-height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

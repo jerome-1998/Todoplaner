@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="{{url_for('static', filename='scripts/main.js')}}"></script>
+    <link href="{{url_for('static', filename='styles/styles.css')}}" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body class="background">
+    <h1 class="text-center">Offene Aufgaben</h1>
+    <div class="topNav">
+        <a name="monthquests" class="btn" id="{{url_for('todo', filter_art='monthquests')}}">Monatsaufgaben</a>
+        <a name="weekquests" class="btn" id="{{url_for('todo', filter_art='weekquests')}}">Wochenaufgaben</a>
+        <a name="daylyquests" class="btn" id="{{url_for('todo', filter_art='daylyquests')}}">Tagesaufgaben</a>
+        <a name="allquests" class="btn" id="{{url_for('todo')}}">Alle Aufgaben</a>
+    </div>
+<!-- if else from ctx-->
+    <div class="questList">
+        <!-- sortierbutton -->
+        {%if sort_dir == 'asc'%}
+        <button class="sort" id="{{url_for('todo', sort_dir='desc')}}">Absteigend</button>
+        {%elif sort_dir == 'desc'%}
+        <button class="sort" id="{{url_for('todo')}}">Unsortiert</button>
+        {%else%}
+        <button class="sort" id="{{url_for('todo', sort_dir='asc')}}">Aufsteigend</button>
+        {%endif%}
+        {%for quest in quests%}
+            <div class="row">
+                {%if quest.quest_state == 'checked'%}
+                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7">
+                    <p class="quest"><del>{{quest.quest_text}}</del></p>
+                </div>
+                {%else%}
+                <div class="col-xl-7 col-lg-7 col-md-7 col-sm-7 col-7">
+                    <p class="quest">{{quest.quest_text}}</p>
+                </div>
+                {%endif%}
+                <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2">
+                    <button class="check" id="{{quest.id}}">Abhaken</button>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                    <button class="delete" id="{{quest.id}}">X</button>
+                </div>
+            </div>
+        {%endfor%}    
+    </div>
+
+    <div class="footer">
+        <div class="add_Quest">
+            <input type="text" id="add_quest_text"/>
+            <div class="row">
+                <label class="col-xl-2 col-lg-2 col-md-2 col-sm-2 col-2" for="quests">Aufgabenart: </label>
+                <select id="quest_art" class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-3">
+                    <option value="monthquests">Monatsaufgabe</option>
+                    <option value="weekquests">Wochenaufgabe</option>
+                    <option value="daylyquests">Tagesaufgabe</option>
+                </select>
+                <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-5"></div>
+                <button class="add">Hinzufügen</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
